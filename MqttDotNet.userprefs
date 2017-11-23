@@ -1,0 +1,22 @@
+﻿<Properties StartupConfiguration="{3F1A94FF-6777-48BC-90C5-8C457A8239F5}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MqttLib/Core/Messages/MqttPubrecMessage.cs">
+    <Files>
+      <File FileName="MqttLib/IMqttExtend.cs" Line="63" Column="22" />
+      <File FileName="MqttLib/Mqtt.cs" Line="139" Column="22" />
+      <File FileName="MqttLib/IMqtt.cs" Line="13" Column="37" />
+      <File FileName="MqttLib/IMqttPublisher.cs" Line="68" Column="16" />
+      <File FileName="MqttLib/ExtendedAckArrivedArgs.cs" Line="75" Column="20" />
+      <File FileName="MqttLib/MqttDelegates.cs" Line="32" Column="32" />
+      <File FileName="MqttLib/Core/StreamManager.cs" Line="74" Column="21" />
+      <File FileName="MqttLib/Core/Messages/MqttMessage.cs" Line="16" Column="13" />
+      <File FileName="MqttLib/Core/Messages/MqttPubrecMessage.cs" Line="21" Column="10" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Sample PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>
