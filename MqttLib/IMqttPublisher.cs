@@ -62,7 +62,7 @@ namespace MqttLib
 	/// <param name="retained">Whether the message is retained by the broker</param>
 	/// <returns>Message ID</returns>
 	ulong SetAliasWithToken(string alias, string token);
-	ulong Publish2WithToken(string topic, string token, MqttPayload payload, QoS qos, int ttl, string apn_json);
+	ulong Publish2WithToken(string topic, string token, MqttPayload payload, QoS qos, int ttl, string apn_json, string third_party_push);
 	/// <summary>
 	/// Publish a message to the MQTT message broker under Yunba-AccessManager control
 	/// </summary>

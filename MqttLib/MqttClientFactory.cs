@@ -85,7 +85,72 @@ namespace MqttLib
 
             return new Mqtt(host, regInfo.clientId, regInfo.username, regInfo.password, null);
         }
+		public static IMqtt CreateCustomClientWithAppkey(string yunbaAppkey, string customid)
+		{
+			var appConfig = ConfigurationManager.OpenExeConfiguration(Assembly.GetExecutingAssembly().Location);
 
+			RegInfo regInfo = new RegInfo();
+			if (appConfig.AppSettings.Settings["username"] != null)
+				regInfo.username = appConfig.AppSettings.Settings["username"].Value;
+
+			if (appConfig.AppSettings.Settings["password"] != null)
+				regInfo.password = appConfig.AppSettings.Settings["password"].Value;
+
+			if (appConfig.AppSettings.Settings["client_id"] != null)
+				regInfo.clientId = appConfig.AppSettings.Settings["client_id"].Value;
+
+			if (regInfo.username == "" || regInfo.password == "" || regInfo.clientId == "")
+			{
+				try
+				{
+					regInfo = GetRegInfoWithAppkey(yunbaAppkey);
+					if (regInfo.username == null || regInfo.password == null || regInfo.clientId == null)
+						throw new Exception("username or password or client_id is null.");
+				}
+				catch (Exception e)
+				{
+					Log.Write(LogLevel.ERROR, e.ToString());
+					throw e;
+				}
+
+				if (appConfig.AppSettings.Settings["username"] == null)
+					appConfig.AppSettings.Settings.Add("username", regInfo.username);
+				else
+					appConfig.AppSettings.Settings["username"].Value = regInfo.username;
+
+				if (appConfig.AppSettings.Settings["password"] == null)
+					appConfig.AppSettings.Settings.Add("password", regInfo.password);
+				else
+					appConfig.AppSettings.Settings["password"].Value = regInfo.password;
+
+				if (appConfig.AppSettings.Settings["client_id"] == null)
+					appConfig.AppSettings.Settings.Add("client_id", regInfo.clientId);
+				else
+					appConfig.AppSettings.Settings["client_id"].Value = regInfo.clientId;
+
+				appConfig.Save(ConfigurationSaveMode.Full, true);
+				ConfigurationManager.RefreshSection("appSettings");
+			}
+
+			string host = null;
+			try
+			{
+				host = GetHostWithAppkey(yunbaAppkey);
+				if (host == null)
+					throw new Exception("host is null.");
+			}
+			catch (Exception e)
+			{
+				Log.Write(LogLevel.ERROR, e.ToString());
+				throw e;
+			}
+
+			Log.Write(LogLevel.INFO, "host: " + host);
+			Log.Write(LogLevel.INFO, "client id: " + regInfo.clientId);
+
+
+			return new Mqtt(host, regInfo.clientId, regInfo.username, regInfo.password, null);
+		}
         public static IMqttShared CreateSharedClient(string connString, string clientId, string username = null, string password = null)
         {
             return new Mqtt(connString, clientId, username, password, null);

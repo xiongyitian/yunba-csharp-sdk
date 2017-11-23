@@ -1,0 +1,6 @@
+/Users/yunba/yunba-csharp-sdk/MqttLib/bin/Debug/MqttLib.dll.config
+/Users/yunba/yunba-csharp-sdk/MqttLib/bin/Debug/MqttLib.dll.mdb
+/Users/yunba/yunba-csharp-sdk/MqttLib/bin/Debug/MqttLib.dll
+/Users/yunba/yunba-csharp-sdk/MqttLib/obj/Debug/MqttLib.dll
+/Users/yunba/yunba-csharp-sdk/MqttLib/obj/Debug/MqttLib.dll.mdb
+/Users/yunba/yunba-csharp-sdk/MqttLib/bin/Debug/Newtonsoft.Json.dll

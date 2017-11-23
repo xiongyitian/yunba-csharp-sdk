@@ -606,16 +606,16 @@ namespace MqttLib
 			return Publish(AliasWithToken, payload, qos, retained);
 		}
 
-		public ulong Publish2WithToken(string topic, string token, MqttPayload payload, QoS qos, int ttl, string apn_json)
+		public ulong Publish2WithToken(string topic, string token, MqttPayload payload, QoS qos, int ttl, string apn_json, string third_party_push)
 		{ 
 			string topicWithToken = ",yam" + token + "_" + topic;
-			return Publish2(topicWithToken, payload, qos, ttl, apn_json);
+			return Publish2(topicWithToken, payload, qos, ttl, apn_json, third_party_push);
 		}
 
-		public ulong Publish2ToAliasWithToken(string alias, string token, MqttPayload payload, QoS qos, int ttl, string apn_json)
+		public ulong Publish2ToAliasWithToken(string alias, string token, MqttPayload payload, QoS qos, int ttl, string apn_json, string third_party_push)
 		{ 
 			string AliasWithToken = ",yam" + token + "_" + ",yta/" + alias;
-			return Publish2(AliasWithToken, payload, qos, ttl, apn_json);
+			return Publish2(AliasWithToken, payload, qos, ttl, apn_json, third_party_push);
 		}
 
 		public ulong SubscribeWithToken(Subscription[] subscriptions, string token) 
